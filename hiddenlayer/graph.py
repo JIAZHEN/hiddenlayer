@@ -145,7 +145,7 @@ def build_graph(model=None, args=None, input_names=None,
         from .tf_builder import import_graph, FRAMEWORK_TRANSFORMS
         import_graph(g, model)
     else:
-        raise ValueError("`model` input param must be a PyTorch, TensorFlow, or Keras-with-TensorFlow-backend model.") 
+        raise ValueError("`model` input param must be a PyTorch, TensorFlow, or Keras-with-TensorFlow-backend model.")
 
     # Apply Transforms
     if framework_transforms:
@@ -183,7 +183,7 @@ class Graph():
             elif framework == "tensorflow":
                 from .tf_builder import import_graph, FRAMEWORK_TRANSFORMS
                 import_graph(self, model)
-            
+
             # Apply Transforms
             if framework_transforms:
                 if framework_transforms == "default":
@@ -317,23 +317,23 @@ class Graph():
 
         # Build GraphViz Digraph
         dot = Digraph()
-        dot.attr("graph", 
+        dot.attr("graph",
                  bgcolor=self.theme["background_color"],
                  color=self.theme["outline_color"],
                  fontsize=self.theme["font_size"],
                  fontcolor=self.theme["font_color"],
                  fontname=self.theme["font_name"],
                  margin=self.theme["margin"],
-                 rankdir="LR",
+                 rankdir="BT",
                  pad=self.theme["padding"])
-        dot.attr("node", shape="box", 
+        dot.attr("node", shape="box",
                  style="filled", margin="0,0",
                  fillcolor=self.theme["fill_color"],
                  color=self.theme["outline_color"],
                  fontsize=self.theme["font_size"],
                  fontcolor=self.theme["font_color"],
                  fontname=self.theme["font_name"])
-        dot.attr("edge", style="solid", 
+        dot.attr("edge", style="solid",
                  color=self.theme["outline_color"],
                  fontsize=self.theme["font_size"],
                  fontcolor=self.theme["font_color"],
@@ -357,7 +357,7 @@ class Graph():
     def _repr_svg_(self):
         """Allows Jupyter notebook to render the graph automatically."""
         return self.build_dot()._repr_svg_()
-    
+
     def save(self, path, format="pdf"):
         # TODO: assert on acceptable format values
         dot = self.build_dot()
