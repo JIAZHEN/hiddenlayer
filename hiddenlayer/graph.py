@@ -324,7 +324,6 @@ class Graph():
                  fontcolor=self.theme["font_color"],
                  fontname=self.theme["font_name"],
                  margin=self.theme["margin"],
-                 rankdir="BT",
                  pad=self.theme["padding"])
         dot.attr("node", shape="box",
                  style="filled", margin="0,0",
